@@ -1,25 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    @php
-        $count = $user->reviews->count();
-    @endphp
+    <h1 class="font-display text-2xl font-semibold text-purple-950">{{ $district->name }}</h1>
+    <p class="text-stone-600 mb-6">{{ $reviewCount }} {{ Str::plural('review', $reviewCount) }} in {{ $district->name }}</p>
 
-    <h1 class="font-display text-2xl font-semibold text-purple-950">{{ $user->name }}</h1>
-    <p class="text-stone-600 mb-6">{{ $count }} {{ Str::plural('review', $count) }} written</p>
-
-    <div class="bg-white rounded-xl shadow-sm border border-stone-200 p-6">
-        @forelse ($user->reviews as $review)
-            <div class="border-b py-3">
-                <p>
-                    <a href="{{ route('eateries.show', $review->eatery) }}" class="font-semibold text-purple-800 hover:underline">{{ $review->eatery->name }}</a>
-                    <x-rating :value="$review->rating" class="ml-2" />
-                    <span class="text-sm">{{ $review->rating }}/5</span>
-                </p>
-                <p class="mt-1">{{ $review->body }}</p>
-            </div>
-        @empty
-            <p class="text-stone-500">This reviewer has not written any reviews yet.</p>
-        @endforelse
-    </div>
+    @if ($district->eateries->isEmpty())
+        <p class="text-stone-500">No eateries in this district yet.</p>
+    @else
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            @foreach ($district->eateries as $eatery)
+                <x-eatery-card :eatery="$eatery" />
+            @endforeach
+        </div>
+    @endif
 @endsection
