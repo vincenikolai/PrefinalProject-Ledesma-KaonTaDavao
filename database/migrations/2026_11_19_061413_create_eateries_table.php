@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('eateries', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('district_id')->constrained();
+            $table->string('name', 100)->unique();
+            $table->string('slug')->unique();
+            $table->string('address');
+            $table->string('price_range');
+            $table->string('specialty')->nullable();
+            $table->boolean('is_open')->default(true);
             $table->timestamps();
         });
     }
