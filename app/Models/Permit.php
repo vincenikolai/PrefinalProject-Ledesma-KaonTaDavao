@@ -22,4 +22,9 @@ class Permit extends Model
             'expires_on' => 'date',
         ];
     }
+
+    public function eatery()
+    {
+        return $this->belongsTo(Eatery::class);
+    }
 }

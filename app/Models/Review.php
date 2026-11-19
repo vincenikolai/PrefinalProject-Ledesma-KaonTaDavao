@@ -23,4 +23,14 @@ class Review extends Model
             'rating' => 'integer',
         ];
     }
+
+    public function eatery()
+    {
+        return $this->belongsTo(Eatery::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

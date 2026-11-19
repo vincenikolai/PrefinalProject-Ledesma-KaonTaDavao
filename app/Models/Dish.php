@@ -24,4 +24,9 @@ class Dish extends Model
             'is_bestseller' => 'boolean',
         ];
     }
+
+    public function eatery()
+    {
+        return $this->belongsTo(Eatery::class);
+    }
 }

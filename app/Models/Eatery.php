@@ -26,4 +26,29 @@ class Eatery extends Model
             'is_open' => 'boolean',
         ];
     }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    public function dishes()
+    {
+        return $this->hasMany(Dish::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function permit()
+    {
+        return $this->hasOne(Permit::class);
+    }
+
+    public function features()
+    {
+        return $this->belongsToMany(Feature::class);
+    }
 }
