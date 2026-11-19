@@ -25,7 +25,7 @@
 <div class="flex flex-col gap-4">
     <div>
         <label for="name" class="block text-sm font-medium mb-1">Name</label>
-        <input type="text" name="name" id="name" value="{{ old('name', $eatery?->name) }}" class="w-full border rounded px-3 py-2">
+        <input type="text" name="name" id="name" value="{{ old('name', $eatery?->name) }}" class="w-full border border-stone-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400">
         @error('name')
             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
         @enderror
@@ -33,7 +33,7 @@
 
     <div>
         <label for="district_id" class="block text-sm font-medium mb-1">District</label>
-        <select name="district_id" id="district_id" class="w-full border rounded px-3 py-2">
+        <select name="district_id" id="district_id" class="w-full border border-stone-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400">
             <option value="">-- Select district --</option>
             @foreach ($districts as $district)
                 <option value="{{ $district->id }}" @selected(old('district_id', $eatery?->district_id) == $district->id)>{{ $district->name }}</option>
@@ -46,7 +46,7 @@
 
     <div>
         <label for="address" class="block text-sm font-medium mb-1">Address</label>
-        <input type="text" name="address" id="address" value="{{ old('address', $eatery?->address) }}" class="w-full border rounded px-3 py-2">
+        <input type="text" name="address" id="address" value="{{ old('address', $eatery?->address) }}" class="w-full border border-stone-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400">
         @error('address')
             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
         @enderror
@@ -54,7 +54,7 @@
 
     <div>
         <label for="price_range" class="block text-sm font-medium mb-1">Price Range</label>
-        <select name="price_range" id="price_range" class="w-full border rounded px-3 py-2">
+        <select name="price_range" id="price_range" class="w-full border border-stone-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400">
             <option value="">-- Select price range --</option>
             <option value="budget" @selected(old('price_range', $eatery?->price_range) == 'budget')>Budget (₱)</option>
             <option value="mid" @selected(old('price_range', $eatery?->price_range) == 'mid')>Mid (₱₱)</option>
@@ -67,7 +67,7 @@
 
     <div>
         <label for="specialty" class="block text-sm font-medium mb-1">Specialty</label>
-        <input type="text" name="specialty" id="specialty" value="{{ old('specialty', $eatery?->specialty) }}" class="w-full border rounded px-3 py-2">
+        <input type="text" name="specialty" id="specialty" value="{{ old('specialty', $eatery?->specialty) }}" class="w-full border border-stone-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400">
         @error('specialty')
             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
         @enderror
@@ -103,7 +103,7 @@
 
     <div>
         <label for="permit_no" class="block text-sm font-medium mb-1">Permit Number</label>
-        <input type="text" name="permit_no" id="permit_no" value="{{ old('permit_no', $eatery?->permit?->permit_no) }}" placeholder="DVO-2026-0415" class="w-full border rounded px-3 py-2">
+        <input type="text" name="permit_no" id="permit_no" value="{{ old('permit_no', $eatery?->permit?->permit_no) }}" placeholder="DVO-2026-0415" class="w-full border border-stone-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400">
         @error('permit_no')
             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
         @enderror
@@ -111,7 +111,7 @@
 
     <div>
         <label for="expires_on" class="block text-sm font-medium mb-1">Permit Expiry Date</label>
-        <input type="date" name="expires_on" id="expires_on" value="{{ old('expires_on', $eatery?->permit?->expires_on?->format('Y-m-d')) }}" class="w-full border rounded px-3 py-2">
+        <input type="date" name="expires_on" id="expires_on" value="{{ old('expires_on', $eatery?->permit?->expires_on?->format('Y-m-d')) }}" class="w-full border border-stone-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400">
         @error('expires_on')
             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
         @enderror
